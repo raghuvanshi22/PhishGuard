@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "phishguard/api/app.py",
+      "use": "@vercel/python"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "phishguard/api/app.py"
+    }
+  ]
+}
