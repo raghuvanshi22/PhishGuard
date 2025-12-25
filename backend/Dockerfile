@@ -19,6 +19,9 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy backend code
 COPY backend/ .
+# DEBUG: List mounted files to verify phishguard/models exists
+RUN ls -R /app
+
 
 # Copy frontend assets to system root /frontend (accessible via ../../../frontend)
 COPY frontend/ /frontend
