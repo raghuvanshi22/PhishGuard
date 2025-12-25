@@ -5,19 +5,26 @@ FROM python:3.9-slim-bullseye
 WORKDIR /app
 
 # Install system dependencies required for OpenCV
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
     libgl1-mesa-glx \
     libglib2.0-0 \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy requirements first to leverage Docker cache
-COPY requirements.txt .
+# Copy requirements from backend directory
+COPY backend/requirements.txt .
 
-# Install Python dependencies
+# Install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the rest of the application
-COPY . .
+# Copy backend code
+COPY backend/ .
+
+# Copy frontend assets to system root /frontend (accessible via ../../../frontend)
+COPY frontend/ /frontend
+
+# Copy models (if they exist at root)
+COPY models/ /app/models
 
 # Expose port
 EXPOSE 8000

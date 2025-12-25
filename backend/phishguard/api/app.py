@@ -12,7 +12,8 @@ import datetime
 app = FastAPI(title=settings.APP_NAME, version=settings.VERSION)
 
 # Mount static files
-static_dir = os.path.join(os.path.dirname(__file__), "static")
+# Mount static files
+static_dir = os.path.join(os.path.dirname(__file__), "../../../frontend")
 app.mount("/static", StaticFiles(directory=static_dir), name="static")
 
 from phishguard.detection.email_scanner import EmailScanner

@@ -1,14 +1,18 @@
 services:
   phishguard:
-    build: .
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
     container_name: phishguard_api
     ports:
       - "8000:8000"
     volumes:
       # Mount source code for optional development reloading
-      # - .:/app
+      # - ./backend:/app
       # Mount models to persist/load changes without rebuilding
       - ./models:/app/models
+    env_file:
+      - backend/.env
     environment:
       - DEBUG=False
       - MONGO_URI=mongodb://mongo:27017
