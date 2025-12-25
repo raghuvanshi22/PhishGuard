@@ -85,10 +85,10 @@ body {
   letter-spacing: 1px;
 }
 
-.brand svg {
-  width: 24px;
-  height: 24px;
-  fill: var(--primary);
+.brand-logo {
+  height: 32px;
+  width: auto;
+  filter: drop-shadow(0 0 5px var(--primary-glow));
 }
 
 .nav-links {
