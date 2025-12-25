@@ -52,7 +52,12 @@ htmlcov/
 # PhishGuard Specific
 phishguard_api_key
 datasets/
-models/
+# Models (Data/Weights)
+/models/
+/datasets/
+
+# Allow Python code in models package
+!backend/phishguard/models/
 *.log
 # Exclude specific heavy or sensitive directories if they exist in future
 # data/
