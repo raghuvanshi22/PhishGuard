@@ -33,7 +33,8 @@ class EmailScanRequest(BaseModel):
 @app.on_event("startup")
 def startup_db_client():
     db.connect()
-    print(f"INFO:     API Key is active: {settings.API_KEY}")
+    # print(f"INFO:     API Key is active: {settings.API_KEY}")
+    pass
 
 @app.on_event("shutdown")
 def shutdown_db_client():

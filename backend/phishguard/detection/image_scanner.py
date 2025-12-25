@@ -36,7 +36,8 @@ class ImageScanner:
             val, points, _ = self.qr_detector.detectAndDecode(img)
             
             if val:
-                print(f"QR Code Found: {val}")
+                # print(f"QR Code Found: {val}")
+                pass
                 # Analyze function
                 scan_result = self.detector.scan_url(val)
                 results["qr_codes"].append({
