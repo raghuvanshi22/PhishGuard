@@ -29,7 +29,7 @@ for domains in PROTECTED_BRANDS.values():
     SAFE_DOMAINS.update(domains)
 
 # Additional Safe Domains (False Positive Fixes)
-SAFE_DOMAINS.update(["hotstar.com", "www.hotstar.com", "github.com", "www.github.com"])
+SAFE_DOMAINS.update(["hotstar.com", "www.hotstar.com", "github.com", "www.github.com", "irctc.co.in", "www.irctc.co.in"])
 
 SUSPICIOUS_KEYWORDS = [
     "verify", "urgent", "account", "suspended", "login", "password", 
