@@ -18,6 +18,7 @@ class Settings(BaseSettings):
     MONGO_DB_NAME: str = "phishguard"
     
     # Security
+    API_KEY: str = os.getenv("PHISHGUARD_API_KEY", "phishguard-secret-key")
     API_KEY_NAME: str = "X-API-Key"
     
     model_config = SettingsConfigDict(
