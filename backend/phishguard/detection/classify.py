@@ -11,7 +11,22 @@ class PhishDetector:
         
     def scan_url(self, url: str) -> dict:
         # 1. Rules Check
+        # 1. Rules Check
         rule_result = self.rules_engine.evaluate(url)
+        
+        # 1a. Fast Pass (Safe Domain)
+        # If explicitly trusted, skip ML and return SAFE immediately.
+        if "Safe Domain" in rule_result.get("rules_triggered", []):
+             return {
+                "url": url,
+                "score": 0.0,
+                "verdict": "SAFE",
+                "details": {
+                    "ml_score": 0.0,
+                    "rule_result": rule_result
+                }
+            }
+
         if rule_result.get("blocked"):
             return {
                 "url": url,
