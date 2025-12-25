@@ -85,10 +85,9 @@ async def get_history(limit: int = 20):
     return scans
 
 
-# Helper function for async saving (defined here to avoid circular imports)from phishguard.detection.image_scanner import ImageScanner
+# Helper function for async saving (defined here to avoid circular imports)
+from phishguard.detection.image_scanner import ImageScanner
 from fastapi import UploadFile, File
-
-# ... existing imports ...
 
 # Initialize Image Scanner
 image_scanner = ImageScanner()
