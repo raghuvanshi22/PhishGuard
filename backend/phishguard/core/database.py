@@ -1,3 +1,4 @@
+import certifi
 from motor.motor_asyncio import AsyncIOMotorClient
 from phishguard.core.config import settings
 from phishguard.core.logger import logger
@@ -8,7 +9,10 @@ class Database:
 
     def connect(self):
         try:
-            self.client = AsyncIOMotorClient(settings.MONGO_URI)
+            self.client = AsyncIOMotorClient(
+                settings.MONGO_URI,
+                tlsCAFile=certifi.where()
+            )
             self.db = self.client[settings.MONGO_DB_NAME]
             logger.info(f"Connected to MongoDB at {settings.MONGO_URI}")
         except Exception as e:
