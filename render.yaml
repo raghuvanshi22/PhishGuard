@@ -8,7 +8,7 @@ services:
       - key: PHISHGUARD_API_KEY
         generateValue: true
       - key: MONGO_URI
-        value: mongodb://host.docker.internal:27017 # Note: Requires external DB for prod, this is placeholder
+        sync: false # User must provide this secret (connection string) in Dashboard
       - key: APP_NAME
         value: PhishGuard
       - key: DEBUG
