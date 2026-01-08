@@ -54,19 +54,11 @@
 
 ## 📦 Deployment
 
-### Vercel (Recommended)
-
-This project is configured for seamless deployment on Vercel.
-
-1. Fork/Clone this repository to your GitHub.
-2. Import the project in Vercel.
-3. Vercel will automatically detect `vercel.json` and deploy.
-
 ### Docker (Manual)
 
 ```bash
 # Build (Run from root)
-docker build -f backend/Dockerfile -t phishguard .
+docker build -f backend/Dockerfile -t phishguard.
 
 # Run
 docker run -d -p 8000:8000 phishguard
